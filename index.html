@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spin & Win!</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    .wheel {
+      width: 250px;
+      height: 250px;
+      border: 10px solid #e91e63;
+      border-radius: 50%;
+      margin: 30px auto;
+      background: conic-gradient(#ffeb3b 0% 25%, #8bc34a 25% 50%, #03a9f4 50% 75%, #ff5722 75% 100%);
+      animation: spin 4s ease-out forwards;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      background: #4caf50;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #win-msg {
+      display: none;
+      font-size: 22px;
+      color: #333;
+      margin-top: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(1080deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Spin the Wheel & Win a Surprise!</h1>
+  <div class="wheel" id="wheel"></div>
+  
+  <div id="win-msg">Congratulations! You’ve won!</div>
+  
+  <button class="btn" id="spinBtn" onclick="spinWheel()">Spin Now</button>
+  <a href="https://stenexeb.xyz/4/9184660" id="continueBtn" class="btn" style="display:none;">Continue</a>
+
+  <script>
+    function spinWheel() {
+      document.getElementById('wheel').style.animationPlayState = 'running';
+      document.getElementById('spinBtn').disabled = true;
+
+      setTimeout(() => {
+        document.getElementById('win-msg').style.display = 'block';
+        document.getElementById('continueBtn').style.display = 'inline-block';
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
